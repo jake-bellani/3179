@@ -44,7 +44,7 @@
               "field": "magnitude",
               "type": "quantitative",
               "title": "Severity",
-              "scale": {"domain": [7, 9], "range": ["yellow", "red"]}
+              "scale": {"domain": [6, 9], "range": ["red", "yellow"]}
             }
         }
     }]
