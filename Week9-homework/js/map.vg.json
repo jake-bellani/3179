@@ -24,7 +24,13 @@
               "field": "magnitude",
               "type": "quantitative",
               "title": "Magnitude (Richter scale)",
-              "scale": {"domain": [4, 8]}
+              "scale": {"domain": [7, 9]}
+            },
+            "color": {
+              "field": "magnitude",
+              "type": "quantitative",
+              "title": "Severity",
+              "scale": {"domain": [7, 9]}
             }
         }
     }]
