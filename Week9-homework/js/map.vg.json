@@ -38,13 +38,13 @@
               "field": "magnitude",
               "type": "quantitative",
               "title": "Magnitude (Richter scale)",
-              "scale": {"domain": [7, 9]}
+              "scale": {"domain": [6, 9]}
             },
             "color": {
               "field": "magnitude",
               "type": "quantitative",
               "title": "Severity",
-              "scale": {"domain": [6, 9], "range": ["red", "yellow"]}
+              "scale": {"domain": [6, 9], "range": ["yellow", "red"]}
             }
         }
     }]
