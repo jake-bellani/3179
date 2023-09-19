@@ -13,6 +13,13 @@
         "mark": {"type": "geoshape", "fill": "lightgreen", "stroke": "whitesmoke"}
       },
       {
+          "data": {
+            "url": "https://raw.githubusercontent.com/jake-bellani/3179/main/Week9-homework/js/oceans.topojson",
+            "format": {"type": "topojson", "feature": "oceans"}
+          },
+          "mark": {"type": "geoshape", "fill": "skyblue"}
+        },
+      {
         "data": {
           "url": "https://raw.githubusercontent.com/jake-bellani/3179/main/Week9-homework/js/WorldMapWithGraticules.topojson",
           "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
