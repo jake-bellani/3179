@@ -45,7 +45,13 @@
               "type": "quantitative",
               "title": "Severity",
               "scale": {"domain": [6, 9], "range": ["yellow", "red"]}
-            }
+            },
+            "tooltip": [ 
+              {"field": "title"},
+              {"field": "date_time", "title": "Date and time"},
+              {"field": "magnitude", "type": "quantitative", "title": "Magnitude"},
+              {"field": "depth", "title": "Depth"}
+            ] 
         }
     }]
 }
