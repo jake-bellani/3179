@@ -1,0 +1,38 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Continents earhquakes are occurring in",
+    "data": {
+      "url": "https://raw.githubusercontent.com/jake-bellani/3179/main/Week9-homework/data/earthquake_1995-2023.csv"
+    },
+    "transform": [
+      {
+        "aggregate": [
+          {"op": "count", "as": "count"}
+        ],
+        "groupby": ["continent"]
+      },
+      {
+        "calculate": "datum.continent === '' ? 'No assigned continent' : datum.continent",
+        "as": "Continent"
+      }
+    ],
+    "encoding": {
+      "theta": {"field": "count", "type": "quantitative"},
+      "color": {"field": "Continent", "type": "nominal"},
+      "tooltip": [{"field": "Continent", "type": "nominal"}, {"field": "count", "type": "quantitative"}]
+    },
+    "layer": [
+      {
+        "mark": {"type": "arc", "innerRadius": 50},
+        "encoding": {
+          "theta": {"field": "count", "type": "quantitative"},
+          "color": {"field": "Continent", "type": "nominal"},
+          "tooltip": [{"field": "Continent", "type": "nominal"}, {"field": "count", "type": "quantitative"}]
+        }
+      }
+    ],
+    "config": {
+      "view": {"stroke": "transparent"}
+    }
+  }
+  
