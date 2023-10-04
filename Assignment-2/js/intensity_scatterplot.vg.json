@@ -1,0 +1,50 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "height": 500,
+    "width": 500,
+    "title": "Correlation with measured earthquake intensities",
+    "data": {
+      "url": "https://raw.githubusercontent.com/jake-bellani/3179/main/Week9-homework/data/earthquake_1995-2023.csv"
+    },
+      "params": [
+      {
+        "name": "Population_Above",
+  
+        "value": 0,
+        "bind": {"input": "range", "min": 0, "max": 100000000, "step": 1000000}
+      }
+    ],
+    "transform":[
+      {"filter": "datum.cdi > 0"},
+      {"filter": "datum.mmi > 0"}
+    ],
+    "mark": "point",
+    "encoding": {
+      "x": {
+        "field": "mmi",
+        "type": "quantitative",
+        "title":"Maximum estimated intensity",
+        "axis": {"tickCount": 7},
+        "scale": {"type": "log",  "domain":[1, 10]}
+      },
+      "y": {
+        "field": "cdi",
+        "type": "quantitative",
+        "title":"Maximum reported Intensity",
+        "axis": { "tickCount": 6},
+        "scale": {"type": "log", "domain":[1, 10]}
+      },
+      "size": {"field": "cdi", "type": "quantitative",  "scale": {"range": [30, 500]}
+    },
+      "fill": {"field": "Continent",  "type": "nominal","scale": {"domain":["North America", "South America", "Europe", "Africa", "Asia", "Oceania"], "range": ["#e41a1c", "#984ea3", "#ff7f00", "#a6cee3", "#377eb8", "#a65628"]}},
+      "color": {"field": "Continent", "type": "nominal","scale": {"domain":["North America", "South America", "Europe", "Africa", "Asia", "Oceania"],"range": ["#e41a1c", "#984ea3", "#ff7f00", "#a6cee3", "#377eb8", "#a65628"]}
+      },
+      "tooltip": [
+        {"field": "Country", "type": "nominal"},
+        {"field": "Confirmed", "type": "quantitative", "format": ","},
+        {"field": "Active", "type": "quantitative", "format": ","},
+        {"field": "Deaths", "type": "quantitative", "format": ","},
+        {"field": "Recovered", "type": "quantitative", "format": ","}
+      ]
+    }
+  }
