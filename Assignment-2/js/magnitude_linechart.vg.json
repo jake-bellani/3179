@@ -1,30 +1,36 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Yearly earthquake count from 1995 to 2023",
-    "width": 300,
-    "height": 200,
-    "data": {
-      "url": "https://raw.githubusercontent.com/jake-bellani/3179/main/Week9-homework/data/earthquake_1995-2023.csv"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Yearly earthquake count from 1995 to 2023",
+  "width": 1100,
+  "height": 100,
+  "data": {
+    "url": "https://raw.githubusercontent.com/jake-bellani/3179/main/Week9-homework/data/earthquake_1995-2023.csv"
+  },
+  "mark": "area",
+  "encoding": {
+    "x": {
+      "timeUnit": "year",
+      "field": "date_time",
+      "title": "Year",
+      "axis": {"format": "%Y"},
+      "type": "temporal"
     },
-    "mark": "area",
-    "encoding": {
-      "x": {
-        "timeUnit": "year",
-        "field": "date_time",
-        "axis": {"format": "%Y"}
-      },
-      "y": {
-        "aggregate": "count",
-        "field": "magnitude"
-      },
-      "color": {
-        "field": "magnitude",
-        "scale": {
-          "type": "quantize",
-          "domain": [6.5, 7.1, 8.1, 9.1],
-          "range": ["red", "yellow", "green", "blue"]
-        }
+    "y": {
+      "aggregate": "count",
+      "field": "magnitude",
+      "title": "Earthquake count",
+      "type": "quantitative",
+      "scale": {"domain": [0, 40]}
+    },
+    "color": {
+      "field": "magnitude",
+      "title": "Magnitude scale",
+      "scale": {
+        "type": "threshold",
+        "domain": [7, 8, 9], 
+        "range": ["#fc8d59", "#ef6548", "#d7301f", "#7f0000"]
       }
     }
   }
+}
   

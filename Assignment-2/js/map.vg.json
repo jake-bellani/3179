@@ -37,8 +37,12 @@
           "color": {
             "field": "magnitude",
             "type": "quantitative",
-            "title": "Severity",
-            "scale": {"domain": [6, 9], "range": ["red", "yellow"]}
+            "title": "Severity scale",
+            "scale": {
+              "type": "threshold",
+              "domain": [7, 8, 9], 
+              "range": ["#fc8d59", "#ef6548", "#d7301f", "#7f0000"]
+            }
           },
           "tooltip": [ 
             {"field": "title"},
