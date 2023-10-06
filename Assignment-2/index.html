@@ -14,15 +14,65 @@
   
   <body style="text-align: center;">
 
-    <div id="map"></div>
+    <div id="map">
 
-    <script type="text/javascript">
+      <script type="text/javascript">
 
-      var spec2 = "js/map.vg.json";
-      vegaEmbed('#map', spec2).then(function(result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
-    </script>
+        var spec2 = "js/map.vg.json";
+        vegaEmbed('#map', spec2).then(function(result) {
+          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+      </script>
+
+    </div>
+
+    <div id="linechart">
+
+      <script type="text/javascript">
+
+        var spec2 = "js/magnitude_linechart.vg.json";
+        vegaEmbed('#linechart', spec2).then(function(result) {
+          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+      </script>
+
+    </div>
+
+    <div id="scatterplot">
+
+      <script type="text/javascript">
+
+        var spec2 = "js/intensity_scatterplot.vg.json";
+        vegaEmbed('#scatterplot', spec2).then(function(result) {
+          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+      </script>
+
+    </div>
+
+    <div id="over_water_donutchart">
+
+      <script type="text/javascript">
+
+        var spec2 = "js/over_water_donutchart.vg.json";
+        vegaEmbed('#over_water_donutchart', spec2).then(function(result) {
+          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+      </script>
+
+    </div>
+
+    <div id="continent_donutchart">
+
+      <script type="text/javascript">
+
+        var spec2 = "js/continent_donutchart.vg.json";
+        vegaEmbed('#continent_donutchart', spec2).then(function(result) {
+          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+      </script>
+
+    </div>
 
   </body>
 </html>
