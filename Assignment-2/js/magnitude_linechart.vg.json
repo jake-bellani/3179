@@ -12,7 +12,9 @@
       "timeUnit": "year",
       "field": "date_time",
       "title": "Year",
-      "axis": {"format": "%Y"},
+      "axis": {
+        "format": "%Y"
+      },
       "type": "temporal"
     },
     "y": {
@@ -20,17 +22,30 @@
       "field": "magnitude",
       "title": "Earthquake count",
       "type": "quantitative",
-      "scale": {"domain": [0, 40]}
+      "scale": {
+        "domain": [
+          0,
+          40
+        ]
+      }
     },
     "color": {
       "field": "magnitude",
       "title": "Magnitude scale",
       "scale": {
         "type": "threshold",
-        "domain": [7, 8, 9], 
-        "range": ["#fc8d59", "#ef6548", "#d7301f", "#7f0000"]
+        "domain": [
+          7,
+          8,
+          9
+        ],
+        "range": [
+          "#fc8d59",
+          "#ef6548",
+          "#d7301f",
+          "#7f0000"
+        ]
       }
     }
   }
 }
-  

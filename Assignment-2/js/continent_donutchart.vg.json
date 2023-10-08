@@ -7,10 +7,19 @@
   "transform": [
     {
       "aggregate": [
-        {"op": "count", "as": "Count"},
-        {"op": "sum", "field": "Count", "as": "total_count"}
+        {
+          "op": "count",
+          "as": "Count"
+        },
+        {
+          "op": "sum",
+          "field": "Count",
+          "as": "total_count"
+        }
       ],
-      "groupby": ["continent"]
+      "groupby": [
+        "continent"
+      ]
     },
     {
       "calculate": "datum.continent === '' ? 'No assigned continent' : datum.continent",
@@ -21,18 +30,38 @@
       "as": "Percentage"
     }
   ],
-  "mark": {"type": "arc", "innerRadius": 50},
+  "mark": {
+    "type": "arc",
+    "innerRadius": 50
+  },
   "encoding": {
-    "theta": {"field": "Count", "type": "quantitative", "stack": "normalize"},
-    "color": {"field": "Continent", "type": "nominal"},
+    "theta": {
+      "field": "Count",
+      "type": "quantitative",
+      "stack": "normalize"
+    },
+    "color": {
+      "field": "Continent",
+      "type": "nominal"
+    },
     "tooltip": [
-      {"field": "Continent", "type": "nominal"}, 
-      {"field": "Count", "type": "quantitative"},
-      {"field": "Percentage", "type": "quantitative"}
+      {
+        "field": "Continent",
+        "type": "nominal"
+      },
+      {
+        "field": "Count",
+        "type": "quantitative"
+      },
+      {
+        "field": "Percentage",
+        "type": "quantitative"
+      }
     ]
   },
   "config": {
-    "view": {"stroke": "transparent"}
+    "view": {
+      "stroke": "transparent"
+    }
   }
 }
-  

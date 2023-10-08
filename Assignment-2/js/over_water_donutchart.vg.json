@@ -7,10 +7,19 @@
   "transform": [
     {
       "aggregate": [
-        {"op": "count", "as": "Count"},
-        {"op": "sum", "field": "Count", "as": "total_count"}
+        {
+          "op": "count",
+          "as": "Count"
+        },
+        {
+          "op": "sum",
+          "field": "Count",
+          "as": "total_count"
+        }
       ],
-      "groupby": ["tsunami"]
+      "groupby": [
+        "tsunami"
+      ]
     },
     {
       "calculate": "datum.tsunami == 1 ? 'Water' : 'Land'",
@@ -20,18 +29,39 @@
       "calculate": "datum.Count / datum.total_count * 100",
       "as": "Percentage"
     }
-  ],  
-  "mark": {"type": "arc", "innerRadius": 50},
+  ],
+  "mark": {
+    "type": "arc",
+    "innerRadius": 50
+  },
   "encoding": {
-    "theta": {"field": "Count", "type": "quantitative", "stack": "normalize"},
-    "color": {"field": "Region", "type": "nominal"},
+    "theta": {
+      "field": "Count",
+      "type": "quantitative",
+      "stack": "normalize"
+    },
+    "color": {
+      "field": "Region",
+      "type": "nominal"
+    },
     "tooltip": [
-      {"field": "Region", "type": "nominal"}, 
-      {"field": "Count", "type": "quantitative"},
-      {"field": "Percentage", "type": "quantitative"}
+      {
+        "field": "Region",
+        "type": "nominal"
+      },
+      {
+        "field": "Count",
+        "type": "quantitative"
+      },
+      {
+        "field": "Percentage",
+        "type": "quantitative"
+      }
     ]
-  },  
+  },
   "config": {
-    "view": {"stroke": "transparent"}
+    "view": {
+      "stroke": "transparent"
+    }
   }
 }
