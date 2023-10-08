@@ -16,7 +16,7 @@
 <body>
 
   <div id="map">
-    
+
     <script type="text/javascript">
 
       var spec2 = "js/map.vg.json";
@@ -69,6 +69,42 @@
 
       var spec2 = "js/continent_donutchart.vg.json";
       vegaEmbed('#continent_donutchart', spec2).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+    </script>
+
+  </div>
+
+  <div id="alert_wafflechart">
+
+    <script type="text/javascript">
+
+      var spec2 = "js/alert_wafflechart.vg.json";
+      vegaEmbed('#alert_wafflechart', spec2).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+    </script>
+
+  </div>
+
+  <div id="magtype_barchart">
+
+    <script type="text/javascript">
+
+      var spec2 = "js/magtype_barchart.vg.json";
+      vegaEmbed('#magtype_barchart', spec2).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+    </script>
+
+  </div>
+
+  <div id="mag_bubblechart">
+
+    <script type="text/javascript">
+
+      var spec2 = "js/mag_bubblechart.vg.json";
+      vegaEmbed('#mag_bubblechart', spec2).then(function (result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
     </script>

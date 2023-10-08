@@ -1,0 +1,67 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Alert Type Distribution",
+    "data": {
+        "url": "https://raw.githubusercontent.com/jake-bellani/3179/main/Week9-homework/data/earthquake_1995-2023.csv"
+      },
+    "transform": [
+      {
+        "joinaggregate": [{"op": "count", "field": "alert", "as": "TotalAlert"}]
+      },
+      {
+        "joinaggregate": [
+          {"op": "count", "field": "alert", "as": "TotalAlertGrouped"}
+        ],
+        "groupby": ["alert"]
+      },
+      {
+        "calculate": "round(datum.TotalAlertGrouped/datum.TotalAlert * 100)",
+        "as": "PercentOfTotal"
+      },
+      {
+        "calculate": "datum.alert === '' ? 'no alert' : datum.alert",
+        "as": "alert"
+      },
+      {
+        "aggregate": [{"op": "min", "field": "PercentOfTotal", "as": "P"}],
+        "groupby": ["alert"]
+      },
+      {"calculate": "sequence(1,datum.P+1)", "as": "S"},
+      {"flatten": ["S"]},
+      {
+        "window": [{"op": "row_number", "as": "id"}],
+        "sort": [{"field": "alert", "order": "descending"}]
+      },
+      {"calculate": "ceil (datum.id / 10)", "as": "row"},
+      {"calculate": "datum.id - datum.row * 10", "as": "col"}
+    ],
+    "mark": {
+      "type": "circle",
+      "filled": true,
+      "tooltip": true,
+      "stroke": "black",
+      "strokeWidth": 0.7
+    },
+    "encoding": {
+      "x": {"field": "col", "type": "ordinal", "axis": null},
+      "y": {"field": "row", "type": "ordinal", "axis": null, "sort": "-y"},
+      "color": {
+        "field": "alert",
+        "type": "nominal",
+        "scale": {
+            "domain": ["no alert", "green", "yellow", "orange", "red"],
+            "range": ["black", "green", "yellow", "orange", "red"]
+        },
+        "legend": {
+          "title": "Alert Type",
+          "orient": "right",
+          "offset": 10,
+          "labelOffset": 3,
+          "titlePadding": 5,
+          "titleFontSize": 20
+        }
+      },
+      "size": {"value": 241},
+      "tooltip": [{"field": "alert", "type": "nominal"}, {"field": "PercentOfTotal", "type": "quantitative"}]
+    }
+  }
