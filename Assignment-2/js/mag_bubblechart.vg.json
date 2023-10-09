@@ -1,40 +1,47 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Magnitude over time",
-    "width": 800,
-    "height": 450,
-    "data": {
-        "url": "https://raw.githubusercontent.com/jake-bellani/3179/main/Week9-homework/data/earthquake_1995-2023.csv"
-      },
-    "transform": [
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Magnitude over time",
+  "data": {
+    "url": "https://raw.githubusercontent.com/jake-bellani/3179/main/Week9-homework/data/earthquake_1995-2023.csv"
+  },
+  "transform": [
     {
-        "calculate": "datum.continent === '' ? 'No assigned continent' : datum.continent",
-        "as": "Continent"
+      "calculate": "datum.continent === '' ? 'No assigned continent' : datum.continent",
+      "as": "Continent"
     }
-    ],
-    "params": [{
+  ],
+  "params": [
+    {
       "name": "view",
       "select": "interval",
       "bind": "scales"
-    }],
-    "mark": "circle",
-    "encoding": {
-      "y": {
-        "field": "magnitude",
-        "type": "quantitative",
-        "scale": {"zero": false}
+    }
+  ],
+  "mark": "circle",
+  "encoding": {
+    "y": {
+      "field": "magnitude",
+      "type": "quantitative",
+      "scale": {
+        "zero": false
+      }
+    },
+    "x": {
+      "field": "date_time",
+      "timeUnit": "year",
+      "title": "Year",
+      "axis": {
+        "format": "%Y"
       },
-      "x": {
-        "field": "date_time",
-        "timeUnit": "year",
-        "title": "Year",
-        "axis": {
-            "format": "%Y"
-        },
-        "type": "temporal"
-      },
-      "size": {"field": "sig", "type": "quantitative"},
-      "color": {"field": "Continent", "type": "nominal"}
+      "type": "temporal"
+    },
+    "size": {
+      "field": "sig",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "Continent",
+      "type": "nominal"
     }
   }
-  
+}

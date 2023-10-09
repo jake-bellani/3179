@@ -1,8 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Yearly earthquake count from 1995 to 2023",
-  "width": 1100,
-  "height": 100,
   "data": {
     "url": "https://raw.githubusercontent.com/jake-bellani/3179/main/Week9-homework/data/earthquake_1995-2023.csv"
   },

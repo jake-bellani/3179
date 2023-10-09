@@ -1,7 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "height": 500,
-  "width": 500,
   "title": "Correlation with measured earthquake intensities",
   "data": {
     "url": "https://raw.githubusercontent.com/jake-bellani/3179/main/Week9-homework/data/earthquake_1995-2023.csv"

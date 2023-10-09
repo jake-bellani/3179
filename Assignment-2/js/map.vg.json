@@ -1,7 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 800,
-  "height": 450,
   "title": "Earthquakes across the world from 1995 to 2023",
   "projection": {
     "type": "equalEarth"
