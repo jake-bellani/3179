@@ -10,13 +10,6 @@
       "as": "Continent"
     }
   ],
-  "params": [
-    {
-      "name": "view",
-      "select": "interval",
-      "bind": "scales"
-    }
-  ],
   "mark": "circle",
   "encoding": {
     "y": {
@@ -27,8 +20,8 @@
       }
     },
     "x": {
-      "field": "date_time",
       "timeUnit": "year",
+      "field": "date_time",
       "title": "Year",
       "axis": {
         "format": "%Y"
@@ -37,11 +30,42 @@
     },
     "size": {
       "field": "sig",
+      "title": "Significance",
       "type": "quantitative"
     },
     "color": {
       "field": "Continent",
       "type": "nominal"
-    }
+    },
+    "tooltip": [
+      {
+        "field": "title"
+      },
+      {
+        "field": "date_time",
+        "title": "Date and time"
+      },
+      {
+        "field": "magnitude",
+        "type": "quantitative",
+        "title": "Magnitude"
+      },
+      {
+        "field": "depth",
+        "title": "Depth"
+      },
+      {
+        "field": "longitude",
+        "title": "Longitude"
+      },
+      {
+        "field": "latitude",
+        "title": "Latitude"
+      },
+      {
+        "field": "sig",
+        "title": "Event significance rating"
+      }
+    ]
   }
 }

@@ -121,8 +121,7 @@
         "orient": "right",
         "offset": 10,
         "labelOffset": 3,
-        "titlePadding": 5,
-        "titleFontSize": 20
+        "titlePadding": 5
       }
     },
     "size": {

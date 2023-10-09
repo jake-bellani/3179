@@ -1,0 +1,14 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Correlation with measured earthquake intensities",
+    "data": {
+        "url": "https://raw.githubusercontent.com/jake-bellani/3179/main/Week9-homework/data/earthquake_1995-2023.csv"
+    },
+    "mark": "bar",
+    "encoding": {
+        "x": {"field": "mmi", "type": "quantitative"},
+        "y": {"field": "cdi", "type": "quantitative"},
+        "xOffset": {"field": "cdi"},
+        "color": {"field": "cdi"}
+  }
+  }
