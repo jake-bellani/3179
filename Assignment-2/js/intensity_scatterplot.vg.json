@@ -10,6 +10,10 @@
     },
     {
       "filter": "datum.mmi > 0"
+    },
+    {
+      "calculate": "datum.continent === '' ? 'No assigned continent' : datum.continent",
+      "as": "Continent"
     }
   ],
   "mark": "circle",
@@ -24,20 +28,14 @@
       "type": "quantitative",
       "title": "Maximum reported Intensity"
     },
-    "size": {
-      "field": "cdi",
-      "type": "quantitative",
-      "scale": {
-        "range": [
-          30,
-          500
-        ]
-      }
-    },
     "color": {
-      "field": "continent",
+      "field": "Continent",
       "title": "Continent",
       "type": "nominal"
     }
+  },
+  "config": {
+    "background": "transparent",
+    "view": {"stroke": "transparent"}
   }
 }

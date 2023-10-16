@@ -1,6 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Alert Type Distribution",
+  "width": 300,
+  "height": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/jake-bellani/3179/main/Week9-homework/data/earthquake_1995-2023.csv"
   },
@@ -125,17 +127,18 @@
       }
     },
     "size": {
-      "value": 241
+      "value": 850
     },
     "tooltip": [
       {
         "field": "alert",
-        "type": "nominal"
-      },
-      {
-        "field": "PercentOfTotal",
-        "type": "quantitative"
+        "type": "nominal",
+        "title": "Alert"
       }
     ]
+  },
+  "config": {
+    "background": "transparent",
+    "view": {"stroke": "transparent"}
   }
 }

@@ -1,6 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Earthquakes across the world from 1995 to 2023",
+  "width": 600,
+  "height": 300,
   "projection": {
     "type": "equalEarth"
   },
@@ -68,7 +70,7 @@
         "color": {
           "field": "magnitude",
           "type": "quantitative",
-          "title": "Severity scale",
+          "title": "Magnitude scale",
           "scale": {
             "type": "threshold",
             "domain": [
@@ -116,5 +118,9 @@
         ]
       }
     }
-  ]
+  ],
+  "config": {
+    "background": "transparent",
+    "view": {"stroke": "transparent"}
+  }
 }

@@ -1,27 +1,36 @@
-#map {
-	top: 100px;
-	bottom: 100px;
-	left: 100px;
-	right: 100px;
-	/*height: 1000px;
-	width: 800px;*/
-}
-
 body * {
 	font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
-	font-weight: 900;
+	font-weight: 700;
+	font-size: 45px;
+	background-color: rgb(200, 198, 198);
+	padding: 10px;
+	text-align: center;
+}
+
+h2 {
+	font-weight: 700;
+	font-size: 30px;
+	background-color: rgb(200, 198, 198);
+	padding: 10px;
+	text-align: center;
 }
 
 body {
-	background-color: lightgray;
+	background-color: #737373;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+p {
+	color: black;
 }
 
 .page {
-	width: 850px;
-	background-color: white;
+	width: 1200px;
+	background-color: #f0f0f0;
 	margin: auto;
 	padding: 50px;
 	padding-top: 35px;
@@ -29,6 +38,8 @@ body {
 
 .vis-container {
 	width: 100%;
+	text-align: center;
+	padding: 10px;
 }
 
 .description h2,
@@ -50,4 +61,9 @@ h1 {
 
 .small-font {
 	font-size: 14px;
+}
+
+.footer {
+	font-size: 12px;
+	text-align: left;
 }

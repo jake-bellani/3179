@@ -1,6 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Magnitude over time",
+  "width": 500,
   "data": {
     "url": "https://raw.githubusercontent.com/jake-bellani/3179/main/Week9-homework/data/earthquake_1995-2023.csv"
   },
@@ -20,11 +21,11 @@
       }
     },
     "x": {
-      "timeUnit": "year",
+      "timeUnit": "month",
       "field": "date_time",
-      "title": "Year",
+      "title": "Month",
       "axis": {
-        "format": "%Y"
+        "format": "%Y-%m"
       },
       "type": "temporal"
     },
@@ -67,5 +68,9 @@
         "title": "Event significance rating"
       }
     ]
+  },
+  "config": {
+    "background": "transparent",
+    "view": {"stroke": "transparent"}
   }
 }

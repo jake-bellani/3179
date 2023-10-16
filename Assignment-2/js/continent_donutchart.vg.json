@@ -1,6 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Continents earhquakes are occurring in",
+  "width": 250,
+  "height": 250,
   "data": {
     "url": "https://raw.githubusercontent.com/jake-bellani/3179/main/Week9-homework/data/earthquake_1995-2023.csv"
   },
@@ -10,58 +11,83 @@
         {
           "op": "count",
           "as": "Count"
-        },
-        {
-          "op": "sum",
-          "field": "Count",
-          "as": "total_count"
         }
       ],
-      "groupby": [
-        "continent"
-      ]
+      "groupby": ["continent"]
     },
     {
       "calculate": "datum.continent === '' ? 'No assigned continent' : datum.continent",
       "as": "Continent"
     },
     {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "Count",
+          "as": "total_count"
+        }
+      ]
+    },
+    {
       "calculate": "datum.Count / datum.total_count * 100",
       "as": "Percentage"
     }
   ],
-  "mark": {
-    "type": "arc",
-    "innerRadius": 50
-  },
-  "encoding": {
-    "theta": {
-      "field": "Count",
-      "type": "quantitative",
-      "stack": "normalize"
-    },
-    "color": {
-      "field": "Continent",
-      "type": "nominal"
-    },
-    "tooltip": [
-      {
-        "field": "Continent",
-        "type": "nominal"
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "innerRadius": 50
       },
-      {
-        "field": "Count",
-        "type": "quantitative"
-      },
-      {
-        "field": "Percentage",
-        "type": "quantitative"
+      "encoding": {
+        "theta": {
+          "field": "Count",
+          "type": "quantitative",
+          "stack": "normalize"
+        },
+        "color": {
+          "field": "Continent",
+          "type": "nominal"
+        },
+        "tooltip": [
+          {
+            "field": "Continent",
+            "type": "nominal"
+          },
+          {
+            "field": "Percentage",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Percentage (%)"
+          }
+        ]
       }
-    ]
-  },
-  "config": {
-    "view": {
-      "stroke": "transparent"
+    },
+    {
+      "mark": {
+        "type": "text",
+        "text": "Continent",
+        "fontSize": 15,
+        "fontWeight": 600,
+        "baseline": "middle",
+        "align": "center",
+        "dy": -10
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "text": "Distribution",
+        "fontSize": 15,
+        "fontWeight": 600,
+        "baseline": "middle",
+        "align": "center",
+        "dy": 10
+      }
     }
+  ],
+  "config": {
+    "background": "transparent",
+    "view": { "stroke": "transparent" }
   }
 }

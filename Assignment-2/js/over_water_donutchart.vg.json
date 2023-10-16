@@ -1,6 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Earthquakes occurring over different regions",
+  "width": 250,
+  "height": 250,
   "data": {
     "url": "https://raw.githubusercontent.com/jake-bellani/3179/main/Week9-homework/data/earthquake_1995-2023.csv"
   },
@@ -10,58 +11,82 @@
         {
           "op": "count",
           "as": "Count"
-        },
-        {
-          "op": "sum",
-          "field": "Count",
-          "as": "total_count"
         }
       ],
-      "groupby": [
-        "tsunami"
-      ]
+      "groupby": ["tsunami"]
     },
     {
       "calculate": "datum.tsunami == 1 ? 'Water' : 'Land'",
       "as": "Region"
     },
     {
-      "calculate": "datum.Count / datum.total_count * 100",
+      "window": [{"op": "sum", "field": "Count", "as": "TotalCount"}],
+      "frame": [null, null]
+    },
+    {
+      "calculate": "datum.Count / datum.TotalCount * 100",
       "as": "Percentage"
     }
   ],
-  "mark": {
-    "type": "arc",
-    "innerRadius": 50
-  },
-  "encoding": {
-    "theta": {
-      "field": "Count",
-      "type": "quantitative",
-      "stack": "normalize"
-    },
-    "color": {
-      "field": "Region",
-      "type": "nominal"
-    },
-    "tooltip": [
-      {
-        "field": "Region",
-        "type": "nominal"
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "innerRadius": 50
       },
-      {
-        "field": "Count",
-        "type": "quantitative"
-      },
-      {
-        "field": "Percentage",
-        "type": "quantitative"
+      "encoding": {
+        "theta": {
+          "field": "Percentage",
+          "type": "quantitative",
+          "stack": "normalize"
+        },
+        "color": {
+          "field": "Region",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Land", "Water"],
+            "range": ["#addd8e", "#1d91c0"]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Region",
+            "type": "nominal"
+          },
+          {
+            "field": "Percentage",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Percentage (%)"
+          }
+        ]
       }
-    ]
-  },
-  "config": {
-    "view": {
-      "stroke": "transparent"
+    },
+    {
+      "mark": {
+        "type": "text",
+        "text": "Region",
+        "fontWeight": 600,
+        "fontSize": 15,
+        "baseline": "middle",
+        "align": "center",
+        "dy": -10
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "text": "Distribution",
+        "fontWeight": 600,
+        "fontSize": 15,
+        "baseline": "middle",
+        "align": "center",
+        "dy": 10
+      }
     }
+  ],
+  "config": {
+    "background": "transparent",
+    "view": { "stroke": "transparent" }
   }
 }
