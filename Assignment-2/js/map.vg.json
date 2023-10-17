@@ -3,8 +3,11 @@
   "title": "Earthquakes across the world from 1995 to 2023",
   "width": 600,
   "height": 300,
+  "data": {
+    "url": "https://raw.githubusercontent.com/jake-bellani/3179/main/Week9-homework/data/earthquake_1995-2023.csv"
+  },
   "projection": {
-    "type": "equalEarth"
+    "type": "equalEarth", "rotate": [-150, 0, 0]
   },
   "layer": [
     {
@@ -49,9 +52,6 @@
       }
     },
     {
-      "data": {
-        "url": "https://raw.githubusercontent.com/jake-bellani/3179/main/Week9-homework/data/earthquake_1995-2023.csv"
-      },
       "mark": {
         "type": "circle",
         "tooltip": {
@@ -70,7 +70,7 @@
         "color": {
           "field": "magnitude",
           "type": "quantitative",
-          "title": "Magnitude scale",
+          "title": "Magnitude Scale",
           "scale": {
             "type": "threshold",
             "domain": [

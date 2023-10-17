@@ -45,7 +45,7 @@
           "type": "nominal",
           "scale": {
             "domain": ["Land", "Water"],
-            "range": ["#addd8e", "#1d91c0"]
+            "range": ["#7fbc41", "#1d91c0"]
           }
         },
         "tooltip": [
@@ -67,7 +67,7 @@
         "type": "text",
         "text": "Region",
         "fontWeight": 600,
-        "fontSize": 15,
+        "fontSize": 11,
         "baseline": "middle",
         "align": "center",
         "dy": -10
@@ -78,10 +78,10 @@
         "type": "text",
         "text": "Distribution",
         "fontWeight": 600,
-        "fontSize": 15,
+        "fontSize": 11,
         "baseline": "middle",
         "align": "center",
-        "dy": 10
+        "dy": 9
       }
     }
   ],

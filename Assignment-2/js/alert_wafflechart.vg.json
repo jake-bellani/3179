@@ -113,9 +113,9 @@
         "range": [
           "black",
           "green",
-          "yellow",
-          "orange",
-          "red"
+          "#eeca3b",
+          "#fd8d3c",
+          "#f03b20"
         ]
       },
       "legend": {

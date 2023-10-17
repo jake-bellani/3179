@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Methods of measuring magnitude",
+  "title": "Methods of Measuring Magnitude",
   "width": 300,
   "height": 300,
   "data": {
@@ -30,6 +30,7 @@
     },
     "color": {
       "field": "magType",
+      "title": "Magnitude Type",
       "scale": {
         "scheme": "reds"
       }

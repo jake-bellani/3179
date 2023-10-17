@@ -19,7 +19,7 @@
     "y": {
       "aggregate": "count",
       "field": "magnitude",
-      "title": "Earthquake count",
+      "title": "Earthquake Count",
       "type": "quantitative",
       "scale": {
         "domain": [

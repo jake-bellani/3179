@@ -67,7 +67,7 @@
       "mark": {
         "type": "text",
         "text": "Continent",
-        "fontSize": 15,
+        "fontSize": 11,
         "fontWeight": 600,
         "baseline": "middle",
         "align": "center",
@@ -78,11 +78,11 @@
       "mark": {
         "type": "text",
         "text": "Distribution",
-        "fontSize": 15,
+        "fontSize": 11,
         "fontWeight": 600,
         "baseline": "middle",
         "align": "center",
-        "dy": 10
+        "dy": 9
       }
     }
   ],
